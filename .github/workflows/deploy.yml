@@ -39,7 +39,7 @@ jobs:
         run: |
           curl https://install.duckdb.org | DUCKDB_VERSION=${DUCKDB_VERSION} sh
           echo "$HOME/.duckdb/cli/latest" >> "$GITHUB_PATH"
-          duckdb --version
+          "$HOME/.duckdb/cli/latest/duckdb" --version
 
       - name: Build
         env:
