@@ -1,0 +1,12 @@
+node_modules/
+
+dist/
+
+public/data/distance_summary.json
+
+*.log
+
+.env
+.env.*
+
+.codex

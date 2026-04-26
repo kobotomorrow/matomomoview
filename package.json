@@ -1,0 +1,16 @@
+{
+  "name": "matomomoview",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:data": "set -a; [ -f .env ] && . ./.env; set +a; duckdb < scripts/build_distance_summary.sql",
+    "dev": "vite",
+    "build": "npm run build:data && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ランニング 走行距離 | Matomomo View</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <p class="nav-link"><a href="/">トップ</a></p>
+      <h1>ランニング 走行距離</h1>
+
+      <p class="total">総距離: <span id="total-distance">-</span> km</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>月</th>
+            <th>距離</th>
+          </tr>
+        </thead>
+        <tbody id="monthly-list"></tbody>
+      </table>
+    </main>
+    <script type="module" src="/src/pages/runningDistances.ts"></script>
+  </body>
+</html>
