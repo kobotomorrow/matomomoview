@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:data": "set -a; [ -f .env ] && . ./.env; set +a; duckdb < scripts/build_distance_summary.sql",
+    "build:data": "mkdir -p public/data && set -a; [ -f .env ] && . ./.env; set +a; duckdb < scripts/build_distance_summary.sql",
     "dev": "vite",
     "build": "npm run build:data && vite build",
     "preview": "vite preview"
