@@ -2,7 +2,8 @@ name: Deploy
 
 on:
   schedule:
-    - cron: '0 1 * * *' # JST 10:00
+    - cron: '0 5 * * *'
+      timezone: Asia/Tokyo
   workflow_dispatch:
 
 permissions:
