@@ -29,9 +29,32 @@ h1 {
 }
 
 .total {
-  margin: 0 0 24px;
+  margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.summary-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 24px;
+}
+
+button {
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 8px 14px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: #777;
+  cursor: not-allowed;
 }
 
 table {

@@ -13,6 +13,9 @@ const DATA_URL = '/data/distance_summary.json';
 
 const totalDistance = document.querySelector<HTMLSpanElement>('#total-distance');
 const monthlyList = document.querySelector<HTMLTableSectionElement>('#monthly-list');
+const copyButton = document.querySelector<HTMLButtonElement>('#copy-distances');
+
+let currentSummary: DistanceSummary | null = null;
 
 async function loadDistanceSummary(): Promise<DistanceSummary> {
   const response = await fetch(DATA_URL);
@@ -50,13 +53,38 @@ function renderMonthlyDistance(items: MonthlyDistance[]): void {
     .join('');
 }
 
+function buildCopyText(summary: DistanceSummary): string {
+  const rows = summary.monthlyDistance.map(
+    (item) => `${formatMonth(item)}\t${item.distance} km`,
+  );
+
+  return [`総距離\t${summary.totalDistance} km`, "", "月\t距離", ...rows].join("\n");
+}
+
 function render(summary: DistanceSummary): void {
+  currentSummary = summary;
+
   if (totalDistance) {
     totalDistance.textContent = String(summary.totalDistance);
   }
 
   renderMonthlyDistance(summary.monthlyDistance);
+
+  if (copyButton) {
+    copyButton.disabled = false;
+  }
 }
+
+copyButton?.addEventListener('click', async () => {
+  if (!currentSummary) return;
+
+  await navigator.clipboard.writeText(buildCopyText(currentSummary));
+  copyButton.textContent = 'コピーしました';
+
+  window.setTimeout(() => {
+    copyButton.textContent = 'コピー';
+  }, 2000);
+});
 
 loadDistanceSummary()
   .then(render)
