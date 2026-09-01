@@ -43,7 +43,7 @@ jobs:
             public/data/distance_summary.json
 
       - name: Build
-        run: npx vite build
+        run: npm run build
 
       - name: Deploy to S3
         run: |
